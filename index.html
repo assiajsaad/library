@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
     <title>Library</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        Welcome to our Library
+      </div>
+      <div class="content"></div>
+      <div class="form-container">
+        <form action="/" method="post">
+          <div class="title">Add Book</div>
+          <div class="input">
+            <label for="bookTitle">Book Title</label>
+            <input type="text" id="bookTitle" name="bookTitle" required/>
+          </div>
+          <div class="input">
+            <label for="author">Author Name</label>
+            <input type="text" id="author" name="author" required/>
+          </div>
+          <div class="input">
+            <label for="pages">Number of Pages</label>
+            <input type="number" id="pages" name="pages" required/>
+          </div>
+          <div class="input-block">
+            <label for="isRead" class="isRead">Read</label>
+            <input type="checkbox" name="isRead" class="isRead" id="isRead" />
+          </div>
+          <input type="submit" value="Add Book">
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
