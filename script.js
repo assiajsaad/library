@@ -49,13 +49,15 @@ function showBooks() {
     })
     btnToggleRead.addEventListener('click',(event)=>{
       const cardIndex = Array.from(content.children).indexOf(event.target.parentElement);
+  
       if(myLibrary[cardIndex].isRead === "Yes"){
-        myLibrary[cardIndex].isRead = 'No';
-      }else if (myLibrary[cardIndex].isRead === "No");{
-        myLibrary[cardIndex].isRead = 'Yes';
+      myLibrary[cardIndex].isRead = "No";
+        event.target.parentElement.firstElementChild.textContent = myLibrary[cardIndex].info();
+      }else if(myLibrary[cardIndex].isRead === "No"){
+        myLibrary[cardIndex].isRead = "Yes";
+        event.target.parentElement.firstElementChild.textContent = myLibrary[cardIndex].info();
       }
-      console.log(myLibrary[cardIndex].isRead);
-      // showBooks();
+     
     })
   });
 }
