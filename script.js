@@ -12,54 +12,30 @@ function Book(title, author, pages, isRead) {
 
 function showBooks() {
   let content = document.querySelector(".content");
-  let card = document.createElement("div");
-  card.className = "card";
-  let cardText = document.createElement("div");
-  cardText.className = "card-text";
-  let delBtn = document.createElement("button");
-  delBtn.className = "btn-delete";
-  delBtn.textContent = "Delete Item";
+  content.innerHTML = ''; // Clear previous content
 
-  let btnToggleRead = document.createElement("button");
-  btnToggleRead.className = "btn-toggle-read";
-  btnToggleRead.textContent = "Change Read Status";
+  myLibrary.forEach((book, index) => {
+    let card = document.createElement("div");
+    card.className = "card";
+    let cardText = document.createElement("div");
+    cardText.className = "card-text";
+    let delBtn = document.createElement("button");
+    delBtn.className = "btn-delete";
+    delBtn.textContent = "Delete Item";
 
-  myLibrary.map((book, index) => {
+    let btnToggleRead = document.createElement("button");
+    btnToggleRead.className = "btn-toggle-read";
+    btnToggleRead.textContent = "Change Read Status";
+
     cardText.textContent = book.info();
 
     card.appendChild(cardText);
-
     card.appendChild(btnToggleRead);
     card.appendChild(delBtn);
     content.appendChild(card);
 
-    // content.addEventListener("click", (event) => {
-    //   if (event.target.classList.contains(".btn-delete")) {
-    //     myLibrary.splice(index, 1);
-    //     delBtn.parentElement.remove();
-    //   } else if (event.target.classList.contains(".btn-toggle-read")) {
-    //     book.isRead = !book.isRead;
-    //   }
-    // });
-
-    delBtn.addEventListener('click',()=>{
-        myLibrary.splice(index,1);
-        delBtn.parentElement.remove();
-
-    })
-    btnToggleRead.addEventListener('click',(event)=>{
-      const cardIndex = Array.from(content.children).indexOf(event.target.parentElement);
-  
-      if(myLibrary[cardIndex].isRead === "Yes"){
-      myLibrary[cardIndex].isRead = "No";
-        event.target.parentElement.firstElementChild.textContent = myLibrary[cardIndex].info();
-      }else if(myLibrary[cardIndex].isRead === "No"){
-        myLibrary[cardIndex].isRead = "Yes";
-        event.target.parentElement.firstElementChild.textContent = myLibrary[cardIndex].info();
-      }
-     
-    })
   });
+
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
@@ -80,19 +56,19 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-// let cardContainer = document.querySelector('.container');
-//   cardContainer.addEventListener('click', (event) => {
-//   if (event.target.classList.contains('delete-btn')) {
-//     const card = event.target.parentNode;
-//     const index = Array.from(cardContainer.children).indexOf(card);
-//     if (index !== -1) {
-//       cardsData.splice(index, 1);
-//       card.remove();
-//     }
-//   } else if(event.target.classList.contains('btn-toggle-read')) {
-
-//   }
-// });
+document.querySelector(".content").addEventListener('click', (event) => {
+  if (event.target.classList.contains('btn-delete')) {
+    let card = event.target.parentElement;
+    let index = Array.from(card.parentElement.children).indexOf(card);
+    myLibrary.splice(index, 1);
+    card.remove();
+  } else if (event.target.classList.contains('btn-toggle-read')) {
+    let card = event.target.parentElement;
+    let index = Array.from(card.parentElement.children).indexOf(card);
+    myLibrary[index].isRead = myLibrary[index].isRead === "Yes" ? "No" : "Yes";
+    card.firstElementChild.textContent = myLibrary[index].info();
+  }
+});
 
 addBookToLibrary(
   "Freakonomics",
