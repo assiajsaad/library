@@ -20,11 +20,22 @@ function showBooks() {
     delBtn.className = 'btn-delete';
     delBtn.textContent = "Delete Item";
 
-  myLibrary.map((book) => {
+    
+    
+    
+
+  myLibrary.map((book, index) => {
     cardText.textContent = book.info();
+    
     card.appendChild(cardText)
     card.appendChild(delBtn);
     content.appendChild(card);
+    delBtn.addEventListener('click',(index)=>{
+        myLibrary.splice(index,1);
+        console.log(delBtn.parentElement.parentElement);
+        content.removeChild(delBtn.parentElement);
+        // showBooks();
+    })
   });
 }
 
@@ -59,9 +70,6 @@ form.addEventListener('submit',(event)=>{
 
 
 
-
-
-
 addBookToLibrary(
   "Freakonomics",
   "Stephen J. Dubner and Steven Levit",
@@ -70,3 +78,5 @@ addBookToLibrary(
 );
 
 showBooks();
+
+

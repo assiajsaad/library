@@ -28,7 +28,8 @@
           </div>
           <div class="input-block">
             <label class="isRead">Read</label>
-            <label for="yes" class="isRead">Yes</label>
+            <div class="radio">
+                <label for="yes" class="isRead">Yes</label>
             <input
               type="radio"
               name="isRead"
@@ -37,7 +38,7 @@
               value="Yes"
             />
 
-            <label for="no" class="isRead">No</label>
+            <label for="no" class="isRead" >No</label>
 
             <input
               type="radio"
@@ -45,7 +46,9 @@
               class="isRead"
               id="no"
               value="No"
+              checked
             />
+            </div>
           </div>
           <input type="submit" value="Add Book" class="btn-submit" />
         </form>
