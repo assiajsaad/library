@@ -55,20 +55,34 @@ form input[type="button"] {
 .card {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template: 1fr 1fr /1fr 1fr;
+    grid-template-areas: 
+    "text text"
+    "toggle delete"
+    ;
     padding: 2%;
     height: 100px;
 }
 
 .card-text {
-    grid-template-rows: 1;
+    grid-area: text;
 }
 
 .btn-delete {
-    grid-template-rows: 2;
+    grid-area: delete;
     justify-self: end;
     align-self: end;
     background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    height: 20px;
+}
+.btn-toggle-read {
+    grid-area: toggle;
+    justify-self: start;
+    align-self: end;
+    background-color: lightblue;
     color: white;
     border: none;
     border-radius: 8px;
