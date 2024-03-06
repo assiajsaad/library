@@ -56,7 +56,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-document.querySelector(".content").addEventListener('click', (event) => {
+document.querySelector(".container").addEventListener('click', (event) => {
   if (event.target.classList.contains('btn-delete')) {
     let card = event.target.parentElement;
     let index = Array.from(card.parentElement.children).indexOf(card);
@@ -67,7 +67,16 @@ document.querySelector(".content").addEventListener('click', (event) => {
     let index = Array.from(card.parentElement.children).indexOf(card);
     myLibrary[index].isRead = myLibrary[index].isRead === "Yes" ? "No" : "Yes";
     card.firstElementChild.textContent = myLibrary[index].info();
+  } else if(event.target.classList.contains('btn-add')){
+document.querySelector('.myDialog').showModal();
+  }else if(event.target.classList.contains('close-dialog')){
+    document.querySelector('.myDialog').close();
   }
+});
+
+let btnAdd = document.querySelector('.btn-add');
+btnAdd.addEventListener('click',()=>{
+  
 });
 
 addBookToLibrary(

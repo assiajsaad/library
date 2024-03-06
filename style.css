@@ -4,10 +4,10 @@ body {
 
 .container {
     display: grid;
-    grid-area: 1fr 3fr / 3fr 0.5fr;
+    grid-template-rows: 1fr 3fr;
     grid-template-areas: 
     "header header"
-     "content form"
+     "content content"
     ;
 }
 
@@ -21,6 +21,19 @@ body {
     align-items: center;
 }
 
+.header > .title {
+    margin-right: auto;
+}
+
+.btn-add {
+    background-color: lightblue;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+}
 .content { 
     grid-area: content;
     display: grid;
@@ -29,13 +42,13 @@ body {
     padding: 2%;
 }
 
-.form-container {
+/* .form-container {
     grid-area: form;
     justify-self: end;
     padding: 2.5%;
     margin: 5%;
     border: 1px solid black;
-}
+} */
 
 form {
     display: flex;
@@ -86,5 +99,34 @@ form input[type="button"] {
     color: white;
     border: none;
     border-radius: 8px;
-    height: 20px;
+    height: max-content;
 }
+
+dialog {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  /* Hide the dialog by default */
+  dialog[open] {
+    display: block;
+  }
+
+
+  .title {
+    display: flex;
+  }
+
+  .title-text {
+    margin-right: auto;
+  }
+
+  .close-dialog {
+    border: none;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-weight: 900;
+  }

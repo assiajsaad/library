@@ -9,49 +9,62 @@
   </head>
   <body>
     <div class="container">
-      <div class="header">Welcome to our Library</div>
+      <div class="header">
+        <div class="title">
+          Welcome to our Library
+        </div>
+        <button class="btn-add">Add Book</button>
+      </div>
+
       <div class="content"></div>
       <div class="form-container">
-        <form id="bookForm" action="/" method="post">
-          <div class="title">Add Book</div>
-          <div class="input">
-            <label for="bookTitle">Book Title</label>
-            <input type="text" id="bookTitle" name="bookTitle" required />
-          </div>
-          <div class="input">
-            <label for="author">Author Name</label>
-            <input type="text" id="author" name="author" required />
-          </div>
-          <div class="input">
-            <label for="pages">Number of Pages</label>
-            <input type="number" id="pages" name="pages" required />
-          </div>
-          <div class="input-block">
-            <label class="isRead">Read</label>
-            <div class="radio">
-                <label for="yes" class="isRead">Yes</label>
-            <input
-              type="radio"
-              name="isRead"
-              class="isRead"
-              id="yes"
-              value="Yes"
-            />
-
-            <label for="no" class="isRead" >No</label>
-
-            <input
-              type="radio"
-              name="isRead"
-              class="isRead"
-              id="no"
-              value="No"
-              checked
-            />
+        <dialog class="myDialog">
+          <form id="bookForm" action="/" method="post">
+            <div class="title">
+              <div class="title-text">
+                Add Book
+              </div>
+              <button class="close-dialog">X</button>
             </div>
-          </div>
-          <input type="submit" value="Add Book" class="btn-submit" />
-        </form>
+            <div class="input">
+              <label for="bookTitle">Book Title</label>
+              <input type="text" id="bookTitle" name="bookTitle" required />
+            </div>
+            <div class="input">
+              <label for="author">Author Name</label>
+              <input type="text" id="author" name="author" required />
+            </div>
+            <div class="input">
+              <label for="pages">Number of Pages</label>
+              <input type="number" id="pages" name="pages" required />
+            </div>
+            <div class="input-block">
+              <label class="isRead">Read</label>
+              <div class="radio">
+                <label for="yes" class="isRead">Yes</label>
+                <input
+                  type="radio"
+                  name="isRead"
+                  class="isRead"
+                  id="yes"
+                  value="Yes"
+                />
+
+                <label for="no" class="isRead">No</label>
+
+                <input
+                  type="radio"
+                  name="isRead"
+                  class="isRead"
+                  id="no"
+                  value="No"
+                  checked
+                />
+              </div>
+            </div>
+            <input type="submit" value="Add Book" class="btn-submit" />
+          </form>
+        </dialog>
       </div>
     </div>
   </body>
