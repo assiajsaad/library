@@ -12,7 +12,7 @@ function Book(title, author, pages, isRead) {
 
 function showBooks() {
   let content = document.querySelector(".content");
-  content.innerHTML = ''; // Clear previous content
+  content.innerHTML = ""; // Clear previous content
 
   myLibrary.forEach((book, index) => {
     let card = document.createElement("div");
@@ -33,9 +33,7 @@ function showBooks() {
     card.appendChild(btnToggleRead);
     card.appendChild(delBtn);
     content.appendChild(card);
-
   });
-
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
@@ -56,35 +54,48 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-document.querySelector(".container").addEventListener('click', (event) => {
-  if (event.target.classList.contains('btn-delete')) {
-    let card = event.target.parentElement;
-    let index = Array.from(card.parentElement.children).indexOf(card);
-    myLibrary.splice(index, 1);
-    card.remove();
-  } else if (event.target.classList.contains('btn-toggle-read')) {
-    let card = event.target.parentElement;
-    let index = Array.from(card.parentElement.children).indexOf(card);
-    myLibrary[index].isRead = myLibrary[index].isRead === "Yes" ? "No" : "Yes";
-    card.firstElementChild.textContent = myLibrary[index].info();
-  } else if(event.target.classList.contains('btn-add')){
-document.querySelector('.myDialog').showModal();
-  }else if(event.target.classList.contains('close-dialog')){
-    document.querySelector('.myDialog').close();
+document.querySelector(".container").addEventListener("click", (event) => {
+  let card = event.target.parentElement;
+  let index = Array.from(card.parentElement.children).indexOf(card);
+  switch (true) {
+    case event.target.classList.contains("btn-delete"):
+      card = event.target.parentElement;
+      index = Array.from(card.parentElement.children).indexOf(card);
+      myLibrary.splice(index, 1);
+      card.remove();
+      break;
+
+    case event.target.classList.contains("btn-toggle-read"):
+      card = event.target.parentElement;
+      index = Array.from(card.parentElement.children).indexOf(card);
+      myLibrary[index].isRead =
+        myLibrary[index].isRead === "Yes" ? "No" : "Yes";
+      card.firstElementChild.textContent = myLibrary[index].info();
+      break;
+
+    case event.target.classList.contains("btn-add"):
+      document.querySelector(".myDialog").showModal();
+      break;
+
+    case event.target.classList.contains("close-dialog"):
+      document.querySelector(".myDialog").close();
+      event.preventDefault();
+      break;
+
+    default:
+      // Handle default case
+      break;
   }
 });
 
-let btnAdd = document.querySelector('.btn-add');
-btnAdd.addEventListener('click',()=>{
-  
-});
+let btnAdd = document.querySelector(".btn-add");
+btnAdd.addEventListener("click", () => {});
 
 addBookToLibrary(
   "Freakonomics",
   "Stephen J. Dubner and Steven Levit",
   230,
-  'Yes'
+  "Yes"
 );
 
 showBooks();
-console.log(myLibrary);

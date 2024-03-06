@@ -1,132 +1,121 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .container {
-    display: grid;
-    grid-template-rows: 1fr 3fr;
-    grid-template-areas: 
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas:
     "header header"
-     "content content"
-    ;
+    "content content";
 }
 
 .header {
-    grid-area: header;
-    font-size: 24px;
-    font-weight: 900;
-    padding: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: header;
+  font-size: 24px;
+  font-weight: 900;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header > .title {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .btn-add {
-    background-color: lightblue;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    height: 50px;
-    width: 100px;
-    border-radius: 50px;
+  background-color: lightblue;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  height: 50px;
+  width: 100px;
+  border-radius: 50px;
 }
-.content { 
-    grid-area: content;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2%;
-    padding: 2%;
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2%;
+  padding: 2%;
 }
-
-/* .form-container {
-    grid-area: form;
-    justify-self: end;
-    padding: 2.5%;
-    margin: 5%;
-    border: 1px solid black;
-} */
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 form input[type="button"] {
-    width: 100px;
-    
+  width: 100px;
 }
 
- label:not(.isRead),input:not(.isRead) {
-    display: block;
+label:not(.isRead),
+input:not(.isRead) {
+  display: block;
 }
 
 .card {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    display: grid;
-    grid-template: 1fr 1fr /1fr 1fr;
-    grid-template-areas: 
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template: 1fr 1fr /1fr 1fr;
+  grid-template-areas:
     "text text"
-    "toggle delete"
-    ;
-    padding: 2%;
-    height: 100px;
+    "toggle delete";
+  padding: 2%;
+  height: 100px;
 }
 
 .card-text {
-    grid-area: text;
+  grid-area: text;
 }
 
 .btn-delete {
-    grid-area: delete;
-    justify-self: end;
-    align-self: end;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    height: 20px;
+  grid-area: delete;
+  justify-self: end;
+  align-self: end;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 20px;
 }
 .btn-toggle-read {
-    grid-area: toggle;
-    justify-self: start;
-    align-self: end;
-    background-color: lightblue;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    height: max-content;
+  grid-area: toggle;
+  justify-self: start;
+  align-self: end;
+  background-color: lightblue;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: max-content;
 }
 
 dialog {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  /* Hide the dialog by default */
-  dialog[open] {
-    display: block;
-  }
+/* Hide the dialog by default */
+dialog[open] {
+  display: block;
+}
 
+.title {
+  display: flex;
+}
 
-  .title {
-    display: flex;
-  }
+.title-text {
+  margin-right: auto;
+}
 
-  .title-text {
-    margin-right: auto;
-  }
-
-  .close-dialog {
-    border: none;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-    font-weight: 900;
-  }
+.close-dialog {
+  border: none;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-weight: 900;
+}
